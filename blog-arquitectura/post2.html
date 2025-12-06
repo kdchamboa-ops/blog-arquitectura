@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>¿Qué es la Arquitectura de Software?</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a href="index.html" class="back">⬅ Volver</a>
+<h1>¿Qué es la Arquitectura de Software?</h1>
+<article>
+    POST 2: Estilos Arquitectónicos más utilizados
+1. Definición de estilo arquitectónico
+
+Un estilo arquitectónico es un modelo o enfoque que define cómo se organiza y estructura un sistema según principios, reglas y patrones específicos.
+
+2. Estilo Monolítico
+Características
+
+Todo el sistema se encuentra en una sola unidad.
+
+Un único despliegue.
+
+Código fuertemente acoplado.
+
+Ventajas
+
+Fácil de desarrollar al inicio.
+
+Simplicidad en el despliegue.
+
+Menor complejidad inicial.
+
+Desventajas
+
+Difícil de escalar.
+
+Cambios impactan todo el sistema.
+
+El mantenimiento se vuelve complejo con el tiempo.
+
+3. Arquitectura en Capas (N-Capas)
+
+Organiza el sistema en capas lógicas: presentación, negocio, datos, etc.
+Permite separar responsabilidades y facilita el mantenimiento.
+
+4. Arquitectura Cliente-Servidor
+
+Divide el sistema en dos partes:
+
+Cliente: interfaz o aplicación que solicita servicios.
+
+Servidor: procesa la lógica y gestiona los datos.
+Es uno de los modelos más utilizados en aplicaciones web.
+
+5. Arquitectura MVC (Modelo-Vista-Controlador)
+
+Separa la aplicación en tres componentes:
+
+Modelo: datos y lógica de negocio.
+
+Vista: interfaz visual.
+
+Controlador: gestiona la interacción y las solicitudes.
+Ideal para frameworks como Angular, Laravel o Spring MVC.
+
+6. Arquitectura de Microservicios
+
+Divide el sistema en servicios pequeños e independientes que se comunican mediante APIs.
+Cada microservicio puede ser desarrollado, desplegado y escalado de forma autónoma.
+
+7. Comparación entre estilos arquitectónicos
+Estilo	Ventajas	Desventajas	Cuándo usar
+Monolítico	Simplicidad, un único despliegue	Difícil de escalar	Proyectos pequeños
+N-Capas	Separación clara, mantenible	Puede ser rígida	Aplicaciones empresariales
+Cliente-Servidor	Eficiente y probado	Dependencia del servidor	Apps web y móviles
+MVC	Buen orden del código	Curva de aprendizaje	Aplicaciones web modernas
+Microservicios	Escalabilidad extrema	Complejidad alta	Sistemas grandes
+8. Conclusión
+
+Cada estilo arquitectónico tiene un momento adecuado. Los proyectos pequeños suelen beneficiarse de modelos simples como monolítico o MVC, mientras que los sistemas grandes o de alto tráfico se apoyan mejor en microservicios. Elegirlo correctamente garantiza estabilidad y crecimiento sano del software.
+</article>
+</body>
+</html>

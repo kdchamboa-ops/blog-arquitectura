@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>¿Qué es la Arquitectura de Software?</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a href="index.html" class="back">⬅ Volver</a>
+<h1>¿Qué es la Arquitectura de Software?</h1>
+<article>
+    POST 3: Patrones Arquitectónicos Modernos
+1. Definición de patrón arquitectónico
+
+Un patrón arquitectónico es una solución reutilizable y probada para resolver problemas comunes dentro del diseño de software a nivel estructural.
+
+2. Patrón Clean Architecture
+Capas
+
+Entidades
+
+Casos de Uso
+
+Adaptadores
+
+Frameworks y Drivers
+
+Propósito
+
+Separar responsabilidades y permitir que la lógica del negocio sea independiente de frameworks, bases de datos o interfaces. Permite alta mantenibilidad y testabilidad.
+
+3. Arquitectura Hexagonal (Puertos y Adaptadores)
+
+Propone un núcleo de negocio que se comunica con el exterior mediante “puertos” (interfaces) y “adaptadores” (implementaciones).
+Permite intercambiar bases de datos, interfaces o servicios externos sin afectar la lógica del dominio.
+
+4. Patrón CQRS (Command Query Responsibility Segregation)
+
+Divide el sistema en dos modelos:
+
+Commands: operaciones que modifican datos.
+
+Queries: operaciones que consultan datos.
+Optimiza rendimiento y escalabilidad, especialmente en sistemas de alto tráfico.
+
+5. Ventajas y desventajas
+Patrón	Ventajas	Desventajas
+Clean Architecture	Alto orden, independencia tecnológica	Mayor complejidad inicial
+Hexagonal	Flexibilidad extrema	Requiere experiencia
+CQRS	Rendimiento óptimo	Añade complejidad al diseño
+6. Ejemplos en proyectos modernos
+
+Plataformas SaaS usando Clean Architecture para permitir cambios futuros.
+
+Apps financieras usando Hexagonal para manejar múltiples fuentes de datos.
+
+Sistemas de e-commerce empleando CQRS para procesar compras y consultas de catálogo rápidamente.
+
+7. Conclusión general
+
+Los patrones modernos representan una evolución en la arquitectura de software. Clean Architecture y Hexagonal promueven independencia y mantenibilidad, mientras que CQRS es ideal para sistemas exigentes en rendimiento. La selección depende del tamaño del proyecto y de los retos técnicos presentes.
+</article>
+</body>
+</html>
