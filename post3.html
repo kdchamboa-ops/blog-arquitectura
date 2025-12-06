@@ -2,76 +2,525 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Patrones Arquitectónicos Modernos</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patrones Arquitectónicos Modernos - Blog Estudiante</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .back-button {
+            display: inline-block;
+            background: #6C63FF;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-bottom: 30px;
+            transition: all 0.3s;
+        }
+        
+        .back-button:hover {
+            background: #5a52d5;
+            transform: scale(1.05);
+        }
+        
+        h1 {
+            color: #6C63FF;
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px dashed #6C63FF;
+        }
+        
+        h2 {
+            color: #2c3e50;
+            margin: 25px 0 15px;
+            padding-left: 15px;
+            border-left: 5px solid #6C63FF;
+        }
+        
+        h3 {
+            color: #3498db;
+            margin: 20px 0 10px;
+        }
+        
+        h4 {
+            color: #16a085;
+            margin: 15px 0 8px;
+        }
+        
+        /* Definición */
+        .definition-box {
+            background: #e3f2fd;
+            border-left: 5px solid #2196f3;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        
+        /* Patrones */
+        .pattern-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border-top: 5px solid;
+        }
+        
+        .pattern-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .pattern-icon {
+            font-size: 40px;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        /* Capas */
+        .layers-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 20px 0;
+            max-width: 400px;
+        }
+        
+        .layer {
+            padding: 15px;
+            border-radius: 10px;
+            color: white;
+            text-align: center;
+        }
+        
+        /* Tabla ventajas/desventajas */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .comparison-table th {
+            background: #6C63FF;
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+        
+        .comparison-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        /* Ejemplos */
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .example-card {
+            background: #f0f8ff;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #36D1DC;
+        }
+        
+        /* Conclusión */
+        .conclusion-box {
+            background: linear-gradient(135deg, #6C63FF, #36D1DC);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin-top: 40px;
+        }
+        
+        .conclusion-box h2 {
+            color: white;
+            text-align: center;
+            border: none;
+        }
+        
+        .next-button {
+            display: inline-block;
+            background: white;
+            color: #6C63FF;
+            padding: 15px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: all 0.3s;
+        }
+        
+        .next-button:hover {
+            background: #f8f9fa;
+            transform: scale(1.05);
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .examples-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .comparison-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-<a href="index.html" class="back">⬅ Volver al inicio</a>
-<article>
-    <h1>POST 3: Patrones Arquitectónicos Modernos</h1>
-    
-    <h2>1. Definición de patrón arquitectónico</h2>
-    <p>Un patrón arquitectónico es una solución reutilizable y probada para resolver problemas comunes dentro del diseño de software a nivel estructural.</p>
-    
-    <h2>2. Patrón Clean Architecture</h2>
-    <h3>Capas:</h3>
-    <ul>
-        <li>Entidades</li>
-        <li>Casos de Uso</li>
-        <li>Adaptadores</li>
-        <li>Frameworks y Drivers</li>
-    </ul>
-    <h3>Propósito:</h3>
-    <p>Separar responsabilidades y permitir que la lógica del negocio sea independiente de frameworks, bases de datos o interfaces. Permite alta mantenibilidad y testabilidad.</p>
-    
-    <h2>3. Arquitectura Hexagonal (Puertos y Adaptadores)</h2>
-    <p>Propone un núcleo de negocio que se comunica con el exterior mediante “puertos” (interfaces) y “adaptadores” (implementaciones). Permite intercambiar bases de datos, interfaces o servicios externos sin afectar la lógica del dominio.</p>
-    
-    <h2>4. Patrón CQRS (Command Query Responsibility Segregation)</h2>
-    <p>Divide el sistema en dos modelos:</p>
-    <ul>
-        <li><strong>Commands:</strong> Operaciones que modifican datos.</li>
-        <li><strong>Queries:</strong> Operaciones que consultan datos.</li>
-    </ul>
-    <p>Optimiza rendimiento y escalabilidad, especialmente en sistemas de alto tráfico.</p>
-    
-    <h2>5. Ventajas y desventajas</h2>
-    <table border="1" cellpadding="10" cellspacing="0">
-        <thead>
-            <tr>
-                <th>Patrón</th>
-                <th>Ventajas</th>
-                <th>Desventajas</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Clean Architecture</td>
-                <td>Alto orden, independencia tecnológica</td>
-                <td>Mayor complejidad inicial</td>
-            </tr>
-            <tr>
-                <td>Hexagonal</td>
-                <td>Flexibilidad extrema</td>
-                <td>Requiere experiencia</td>
-            </tr>
-            <tr>
-                <td>CQRS</td>
-                <td>Rendimiento óptimo</td>
-                <td>Añade complejidad al diseño</td>
-            </tr>
-        </tbody>
-    </table>
-    
-    <h2>6. Ejemplos en proyectos modernos</h2>
-    <ul>
-        <li>Plataformas SaaS usando Clean Architecture para permitir cambios futuros.</li>
-        <li>Apps financieras usando Hexagonal para manejar múltiples fuentes de datos.</li>
-        <li>Sistemas de e-commerce empleando CQRS para procesar compras y consultas de catálogo rápidamente.</li>
-    </ul>
-    
-    <h2>7. Conclusión general</h2>
-    <p>Los patrones modernos representan una evolución en la arquitectura de software. Clean Architecture y Hexagonal promueven independencia y mantenibilidad, mientras que CQRS es ideal para sistemas exigentes en rendimiento. La selección depende del tamaño del proyecto y de los retos técnicos presentes.</p>
-</article>
+    <div class="container">
+        <a href="index.html" class="back-button">
+            <i class="fas fa-arrow-left"></i> Volver al Blog
+        </a>
+        
+        <h1><i class="fas fa-shapes"></i> POST 3: Patrones Arquitectónicos Modernos</h1>
+        
+        <!-- ✅ Definición -->
+        <div class="definition-box">
+            <h2>✅ 1. Definición de patrón arquitectónico</h2>
+            <p>Un <strong>patrón arquitectónico</strong> es una solución reutilizable y probada para resolver problemas comunes dentro del diseño de software a nivel estructural.</p>
+            <p><em>Son como "recetas de cocina" para resolver problemas específicos de arquitectura.</em></p>
+        </div>
+        
+        <!-- ✅ Clean Architecture -->
+        <div class="pattern-card" style="border-top-color: #FF6584;">
+            <div class="pattern-header">
+                <div class="pattern-icon" style="background: #FF6584;">
+                    <i class="fas fa-broom"></i>
+                </div>
+                <div>
+                    <h2>✅ 2. Patrón Clean Architecture</h2>
+                    <p><strong>Arquitectura limpia y ordenada</strong></p>
+                </div>
+            </div>
+            
+            <h3>Capas (de adentro hacia afuera):</h3>
+            
+            <div class="layers-container">
+                <div class="layer" style="background: #FF6584;">
+                    <strong>1. Entidades</strong><br>
+                    <small>Reglas de negocio básicas</small>
+                </div>
+                
+                <div class="layer" style="background: #FF9E6D;">
+                    <strong>2. Casos de Uso</strong><br>
+                    <small>Lógica de aplicación específica</small>
+                </div>
+                
+                <div class="layer" style="background: #36D1DC;">
+                    <strong>3. Adaptadores</strong><br>
+                    <small>Convertidores de datos</small>
+                </div>
+                
+                <div class="layer" style="background: #6C63FF;">
+                    <strong>4. Frameworks y Drivers</strong><br>
+                    <small>Herramientas externas</small>
+                </div>
+            </div>
+            
+            <h3>Propósito:</h3>
+            <p>Separar responsabilidades y permitir que la <strong>lógica del negocio sea independiente</strong> de frameworks, bases de datos o interfaces. Permite alta mantenibilidad y testabilidad.</p>
+            
+            <div style="background: #fff3cd; padding: 15px; border-radius: 10px; margin-top: 15px;">
+                <h4><i class="fas fa-lightbulb" style="color: #f39c12;"></i> Idea principal</h4>
+                <p><strong>"La lógica de negocio no debe depender de nada externo."</strong> Los detalles técnicos (bases de datos, frameworks) son plugins que pueden cambiarse.</p>
+            </div>
+        </div>
+        
+        <!-- ✅ Arquitectura Hexagonal -->
+        <div class="pattern-card" style="border-top-color: #36D1DC;">
+            <div class="pattern-header">
+                <div class="pattern-icon" style="background: #36D1DC;">
+                    <i class="fas fa-hexagon"></i>
+                </div>
+                <div>
+                    <h2>✅ 3. Arquitectura Hexagonal (Puertos y Adaptadores)</h2>
+                    <p><strong>Núcleo aislado del exterior</strong></p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin: 20px 0;">
+                <div style="display: inline-block; position: relative;">
+                    <!-- Núcleo -->
+                    <div style="background: #36D1DC; color: white; padding: 40px; border-radius: 50%; display: inline-block;">
+                        <i class="fas fa-cog" style="font-size: 40px;"></i>
+                        <h4>Núcleo de Negocio</h4>
+                    </div>
+                    
+                    <!-- Adaptadores -->
+                    <div style="position: absolute; top: 20px; left: -100px; background: #6C63FF; color: white; padding: 15px; border-radius: 10px; width: 120px;">
+                        <small>Adaptador</small>
+                        <p>API REST</p>
+                    </div>
+                    
+                    <div style="position: absolute; top: 100px; left: -150px; background: #FF6584; color: white; padding: 15px; border-radius: 10px; width: 120px;">
+                        <small>Adaptador</small>
+                        <p>Base de Datos</p>
+                    </div>
+                    
+                    <div style="position: absolute; top: 20px; right: -100px; background: #FF9E6D; color: white; padding: 15px; border-radius: 10px; width: 120px;">
+                        <small>Adaptador</small>
+                        <p>Interfaz Web</p>
+                    </div>
+                </div>
+            </div>
+            
+            <p><strong>Concepto clave:</strong> Propone un <strong>núcleo de negocio</strong> que se comunica con el exterior mediante <strong>"puertos"</strong> (interfaces) y <strong>"adaptadores"</strong> (implementaciones).</p>
+            
+            <h4>Beneficio principal:</h4>
+            <p>Permite intercambiar bases de datos, interfaces o servicios externos <strong>sin afectar la lógica del dominio</strong>.</p>
+        </div>
+        
+        <!-- ✅ CQRS -->
+        <div class="pattern-card" style="border-top-color: #6C63FF;">
+            <div class="pattern-header">
+                <div class="pattern-icon" style="background: #6C63FF;">
+                    <i class="fas fa-code-branch"></i>
+                </div>
+                <div>
+                    <h2>✅ 4. Patrón CQRS (Command Query Responsibility Segregation)</h2>
+                    <p><strong>Separación de lecturas y escrituras</strong></p>
+                </div>
+            </div>
+            
+            <p>Divide el sistema en dos modelos separados:</p>
+            
+            <div style="display: flex; justify-content: space-around; margin: 20px 0; flex-wrap: wrap;">
+                <div style="text-align: center; padding: 20px; background: #d4edda; border-radius: 10px; min-width: 200px;">
+                    <div style="font-size: 40px; color: #28a745;">
+                        <i class="fas fa-edit"></i>
+                    </div>
+                    <h3>Commands</h3>
+                    <p><strong>Operaciones que MODIFICAN datos</strong></p>
+                    <ul style="text-align: left; margin-top: 10px;">
+                        <li>Crear usuario</li>
+                        <li>Actualizar producto</li>
+                        <li>Eliminar registro</li>
+                    </ul>
+                </div>
+                
+                <div style="text-align: center; padding: 20px; background: #d1ecf1; border-radius: 10px; min-width: 200px;">
+                    <div style="font-size: 40px; color: #17a2b8;">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Queries</h3>
+                    <p><strong>Operaciones que CONSULTAN datos</strong></p>
+                    <ul style="text-align: left; margin-top: 10px;">
+                        <li>Listar productos</li>
+                        <li>Buscar usuario</li>
+                        <li>Generar reportes</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h4>Ventaja principal:</h4>
+            <p>Optimiza rendimiento y escalabilidad, especialmente en sistemas de alto tráfico donde las lecturas son mucho más frecuentes que las escrituras.</p>
+        </div>
+        
+        <!-- ✅ Ventajas y desventajas -->
+        <h2>✅ 5. Ventajas y desventajas de cada patrón</h2>
+        
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Patrón</th>
+                    <th>Ventajas</th>
+                    <th>Desventajas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Clean Architecture</strong></td>
+                    <td>
+                        <ul style="margin: 0; padding-left: 20px;">
+                            <li>Alto orden y organización</li>
+                            <li>Independencia tecnológica</li>
+                            <li>Mantenibilidad extrema</li>
+                            <li>Testabilidad facilitada</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul style="margin: 0; padding-left: 20px;">
+                            <li>Mayor complejidad inicial</li>
+                            <li>Curva de aprendizaje</li>
+                            <li>Overhead para proyectos pequeños</li>
+                            <li>Más código boilerplate</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Hexagonal</strong></td>
+                    <td>
+                        <ul style="margin: 0; padding-left: 20px;">
+                            <li>Flexibilidad extrema</li>
+                            <li>Aislamiento del núcleo</li>
+                            <li>Fácil cambio de tecnologías</li>
+                            <li>Testing del dominio aislado</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul style="margin: 0; padding-left: 20px;">
+                            <li>Requiere experiencia</li>
+                            <li>Conceptos abstractos</li>
+                            <li>Más capas de abstracción</li>
+                            <li>Complejidad en comunicación</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>CQRS</strong></td>
+                    <td>
+                        <ul style="margin: 0; padding-left: 20px;">
+                            <li>Rendimiento óptimo</li>
+                            <li>Escalabilidad independiente</li>
+                            <li>Modelos especializados</li>
+                            <li>Mejor manejo de carga</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul style="margin: 0; padding-left: 20px;">
+                            <li>Añade complejidad al diseño</li>
+                            <li>Consistencia eventual</li>
+                            <li>Dos modelos a mantener</li>
+                            <li>Sincronización compleja</li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <!-- ✅ Ejemplos -->
+        <h2>✅ 6. Ejemplos de aplicación en proyectos modernos</h2>
+        
+        <div class="examples-grid">
+            <div class="example-card">
+                <h3><i class="fas fa-cloud"></i> Plataformas SaaS</h3>
+                <p><strong>Clean Architecture</strong> para permitir cambios futuros</p>
+                <ul style="margin-top: 10px;">
+                    <li>Sistemas de gestión (ERP, CRM)</li>
+                    <li>Plataformas educativas online</li>
+                    <li>Herramientas de colaboración</li>
+                </ul>
+                <p><em>Ejemplo: Sistema de facturación en la nube</em></p>
+            </div>
+            
+            <div class="example-card">
+                <h3><i class="fas fa-university"></i> Apps Financieras</h3>
+                <p><strong>Arquitectura Hexagonal</strong> para manejar múltiples fuentes</p>
+                <ul style="margin-top: 10px;">
+                    <li>Bancos digitales</li>
+                    <li>Plataformas de trading</li>
+                    <li>Sistemas de pago</li>
+                </ul>
+                <p><em>Ejemplo: App que usa APIs bancarias diversas</em></p>
+            </div>
+            
+            <div class="example-card">
+                <h3><i class="fas fa-shopping-cart"></i> E-commerce</h3>
+                <p><strong>CQRS</strong> para procesar compras y consultas</p>
+                <ul style="margin-top: 10px;">
+                    <li>Tiendas online grandes</li>
+                    <li>Marketplaces</li>
+                    <li>Sistemas de reservas</li>
+                </ul>
+                <p><em>Ejemplo: Amazon (lecturas masivas + escrituras)</em></p>
+            </div>
+        </div>
+        
+        <!-- ✅ Conclusión -->
+        <div class="conclusion-box">
+            <h2>✅ 7. Conclusión general</h2>
+            
+            <div style="background: rgba(255, 255, 255, 0.2); padding: 20px; border-radius: 15px; margin: 20px 0;">
+                <h3 style="color: white; text-align: center;">📊 Comparación de los tres patrones</h3>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 15px;">
+                    <div style="text-align: center; padding: 15px; background: rgba(255, 255, 255, 0.3); border-radius: 10px;">
+                        <h4 style="color: white;">Clean Architecture</h4>
+                        <p><strong>Para:</strong> Mantenibilidad a largo plazo</p>
+                        <p><em>Ideal para sistemas que evolucionan</em></p>
+                    </div>
+                    
+                    <div style="text-align: center; padding: 15px; background: rgba(255, 255, 255, 0.3); border-radius: 10px;">
+                        <h4 style="color: white;">Hexagonal</h4>
+                        <p><strong>Para:</strong> Flexibilidad tecnológica</p>
+                        <p><em>Ideal para integraciones complejas</em></p>
+                    </div>
+                    
+                    <div style="text-align: center; padding: 15px; background: rgba(255, 255, 255, 0.3); border-radius: 10px;">
+                        <h4 style="color: white;">CQRS</h4>
+                        <p><strong>Para:</strong> Alto rendimiento</p>
+                        <p><em>Ideal para sistemas de alto tráfico</em></p>
+                    </div>
+                </div>
+            </div>
+            
+            <p style="text-align: center; margin-top: 20px;">
+                <strong>Los patrones modernos representan una evolución en la arquitectura de software.</strong>
+            </p>
+            
+            <p style="text-align: center; margin: 15px 0;">
+                <strong>Clean Architecture y Hexagonal</strong> promueven independencia y mantenibilidad,<br>
+                mientras que <strong>CQRS</strong> es ideal para sistemas exigentes en rendimiento.
+            </p>
+            
+            <p style="font-style: italic; text-align: center; margin: 20px 0;">
+                "La selección del patrón adecuado depende del tamaño del proyecto, los requisitos específicos y los retos técnicos presentes."
+            </p>
+            
+            <div style="text-align: center;">
+                <a href="index.html" class="next-button">
+                    <i class="fas fa-home"></i> Volver al Inicio
+                </a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
