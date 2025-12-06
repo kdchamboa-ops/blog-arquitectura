@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arquitectura de Software - Blog Estudiante</title>
+    <title>¿Qué es la Arquitectura de Software? - Blog Estudiante</title>
     <style>
         * {
             margin: 0;
@@ -12,8 +12,8 @@
         }
         
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f0f8ff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f9ff;
             color: #333;
             line-height: 1.6;
             padding: 20px;
@@ -85,92 +85,108 @@
             font-weight: bold;
         }
         
-        .components {
-            display: flex;
-            gap: 20px;
-            margin: 25px 0;
-            flex-wrap: wrap;
+        /* Componentes */
+        .components-section {
+            margin: 30px 0;
         }
         
-        .component {
-            flex: 1;
-            min-width: 250px;
+        .component-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .component-card {
             background: #e3f2fd;
             padding: 20px;
             border-radius: 10px;
-            text-align: center;
             transition: transform 0.3s;
         }
         
-        .component:hover {
+        .component-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
-        .icon {
+        .component-icon {
             font-size: 40px;
             margin-bottom: 10px;
+            text-align: center;
         }
         
-        .modules { color: #3498db; }
-        .interfaces { color: #9b59b6; }
-        .connectors { color: #e74c3c; }
+        /* Importancia */
+        .importance-section {
+            margin: 30px 0;
+        }
         
-        .importance-list {
+        .importance-item {
             background: #d5f4e6;
-            padding: 20px;
+            padding: 15px;
             border-radius: 10px;
-            margin: 20px 0;
+            margin: 10px 0;
+            border-left: 5px solid #27ae60;
         }
         
-        .importance-list li {
+        /* Roles */
+        .roles-list {
+            list-style: none;
+            padding-left: 20px;
+        }
+        
+        .roles-list li {
             margin: 10px 0;
             padding-left: 25px;
             position: relative;
         }
         
-        .importance-list li:before {
-            content: "✓";
-            color: #27ae60;
+        .roles-list li:before {
+            content: "▸";
+            color: #f39c12;
             font-weight: bold;
             position: absolute;
             left: 0;
         }
         
-        .architect-image {
-            width: 100px;
-            height: 100px;
-            background: #f39c12;
-            border-radius: 50%;
-            margin: 20px auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 40px;
-            color: white;
+        /* Ejemplos */
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
         }
         
-        .example {
+        .example-card {
             background: #fdebd0;
             padding: 15px;
             border-radius: 10px;
-            margin: 15px 0;
             border-left: 5px solid #f39c12;
         }
         
-        .conclusion {
+        /* Conclusión */
+        .conclusion-box {
             background: linear-gradient(135deg, #74b9ff, #0984e3);
             color: white;
             padding: 25px;
             border-radius: 15px;
             margin-top: 30px;
-            text-align: center;
         }
         
-        .conclusion h2 {
-            color: white;
-            border-left: none;
-            text-align: center;
+        .next-button {
+            display: inline-block;
+            background: white;
+            color: #0984e3;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: all 0.3s;
+        }
+        
+        .next-button:hover {
+            background: #f8f9fa;
+            transform: scale(1.05);
         }
         
         @media (max-width: 768px) {
@@ -178,8 +194,8 @@
                 padding: 20px;
             }
             
-            .components {
-                flex-direction: column;
+            .component-grid, .examples-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -191,115 +207,151 @@
             <i class="fas fa-arrow-left"></i> Volver al Blog
         </a>
         
-        <h1><i class="fas fa-laptop-code"></i> ¿Qué es la Arquitectura de Software?</h1>
+        <h1><i class="fas fa-laptop-code"></i> POST 1: ¿Qué es la Arquitectura de Software?</h1>
         
+        <!-- ✅ Definición -->
         <div class="definition-box">
-            <h2>🚀 La Idea Básica</h2>
-            <p>Imagina que vas a construir una casa. ¿Empezarías a poner ladrillos sin un plano? ¡Claro que no! La <span class="highlight">arquitectura de software</span> es como el plano de tu programa. Es la estructura fundamental que organiza todas las partes del sistema.</p>
+            <h2>✅ 1. Definición de Arquitectura de Software</h2>
+            <p>La <span class="highlight">arquitectura de software</span> es la estructura fundamental de un sistema, formada por:</p>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+                <li><strong>Componentes:</strong> Las partes del sistema</li>
+                <li><strong>Relaciones:</strong> Cómo se conectan entre sí</li>
+                <li><strong>Principios:</strong> Reglas que guían el diseño</li>
+                <li><strong>Lineamientos:</strong> Cómo debe evolucionar</li>
+            </ul>
+            <p style="margin-top: 10px;"><em>Es el plano que define cómo se organiza un sistema antes de construirlo.</em></p>
         </div>
         
-        <h2>🎯 ¿Para qué sirve?</h2>
-        <p>Su objetivo principal es que el software sea:</p>
+        <!-- ✅ Objetivo principal -->
+        <h2>✅ 2. Objetivo principal de la arquitectura en un sistema</h2>
+        <p>Asegurar que el sistema sea:</p>
         <ul style="margin-left: 30px; margin-bottom: 20px;">
-            <li><strong>🏗️ Robusto:</strong> Que no se caiga con facilidad</li>
-            <li><strong>📈 Escalable:</strong> Que pueda crecer cuando sea necesario</li>
-            <li><strong>🔧 Mantenible:</strong> Que sea fácil de arreglar y mejorar</li>
-            <li><strong>⚡ Rápido:</strong> Que funcione bien y rápido</li>
+            <li><strong>🏗️ Robusto:</strong> Resistente a fallos</li>
+            <li><strong>📈 Escalable:</strong> Puede crecer cuando sea necesario</li>
+            <li><strong>🔧 Mantenible:</strong> Fácil de modificar y mejorar</li>
+            <li><strong>🎯 Eficiente:</strong> Cumple con los requisitos funcionales y no funcionales</li>
         </ul>
         
-        <h2>🧩 Las Tres Partes Clave</h2>
-        <div class="components">
-            <div class="component">
-                <div class="icon modules">
-                    <i class="fas fa-cubes"></i>
-                </div>
-                <h3>Módulos</h3>
-                <p>Como piezas de LEGO. Cada módulo hace algo específico: uno para usuarios, otro para pagos, etc.</p>
-            </div>
+        <!-- ✅ Componentes básicos -->
+        <div class="components-section">
+            <h2>✅ 3. Componentes básicos de una arquitectura</h2>
             
-            <div class="component">
-                <div class="icon interfaces">
-                    <i class="fas fa-handshake"></i>
+            <div class="component-grid">
+                <div class="component-card">
+                    <div class="component-icon" style="color: #3498db;">
+                        <i class="fas fa-cubes"></i>
+                    </div>
+                    <h3>a. Módulos</h3>
+                    <p><strong>Unidades lógicas</strong> que agrupan funcionalidades relacionadas. Cada módulo es una parte independiente del sistema.</p>
+                    <p><em>Ejemplo: módulo de usuarios, módulo de pagos, módulo de reportes.</em></p>
                 </div>
-                <h3>Interfaces</h3>
-                <p>Son las "reglas de comunicación". Como cuando dos personas se saludan de mano.</p>
-            </div>
-            
-            <div class="component">
-                <div class="icon connectors">
-                    <i class="fas fa-plug"></i>
+                
+                <div class="component-card">
+                    <div class="component-icon" style="color: #9b59b6;">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>b. Interfaces</h3>
+                    <p><strong>Definen cómo los módulos se comunican</strong> entre sí. Son puntos de conexión para intercambiar datos de manera estandarizada.</p>
+                    <p><em>Ejemplo: APIs, contratos de servicio.</em></p>
                 </div>
-                <h3>Conectores</h3>
-                <p>Son los cables que unen todo. APIs, mensajes, etc. Lo que permite que se comuniquen.</p>
+                
+                <div class="component-card">
+                    <div class="component-icon" style="color: #e74c3c;">
+                        <i class="fas fa-plug"></i>
+                    </div>
+                    <h3>c. Conectores</h3>
+                    <p><strong>Mecanismos que permiten la interacción</strong> entre módulos. Facilitan la comunicación entre partes del sistema.</p>
+                    <p><em>Ejemplo: APIs REST, colas de mensajes, llamadas a funciones.</em></p>
+                </div>
             </div>
         </div>
         
-        <h2>💡 ¿Por qué es importante?</h2>
-        <div class="importance-list">
-            <ul>
-                <li><strong>Crecimiento sin dolor:</strong> Puedes añadir nuevas funciones fácilmente</li>
-                <li><strong>Arreglos rápidos:</strong> Si hay un error, lo encuentras y arreglas rápido</li>
-                <li><strong>Equipos organizados:</strong> Cada programador sabe qué parte tocar</li>
-                <li><strong>Rendimiento asegurado:</strong> El programa corre rápido y bien</li>
-            </ul>
+        <!-- ✅ Importancia -->
+        <div class="importance-section">
+            <h2>✅ 4. Importancia dentro del desarrollo de software</h2>
+            
+            <div class="importance-item">
+                <h3>a. Escalabilidad</h3>
+                <p>Una buena arquitectura facilita el crecimiento del sistema sin comprometer su desempeño. Permite añadir recursos y funcionalidades de manera controlada.</p>
+            </div>
+            
+            <div class="importance-item">
+                <h3>b. Mantenibilidad</h3>
+                <p>Permite realizar cambios, corregir errores y agregar nuevas funcionalidades sin afectar todo el sistema. Facilita la evolución del software.</p>
+            </div>
+            
+            <div class="importance-item">
+                <h3>c. Rendimiento</h3>
+                <p>Una arquitectura bien diseñada permite distribuir cargas, optimizar procesos y garantizar tiempos de respuesta adecuados según los requerimientos.</p>
+            </div>
         </div>
         
-        <h2>👷‍♂️ El Arquitecto de Software</h2>
-        <div style="text-align: center;">
-            <div class="architect-image">
-                <i class="fas fa-user-tie"></i>
-            </div>
-            <p><strong>Es como el director técnico del equipo:</strong></p>
-        </div>
-        <ul style="margin-left: 30px; margin-top: 15px;">
-            <li>Diseña cómo será el programa</li>
-            <li>Elige las tecnologías a usar</li>
-            <li>Asegura que todo funcione bien</li>
-            <li>Guía al equipo de programadores</li>
-            <li>Toma decisiones importantes</li>
+        <!-- ✅ Roles y responsabilidades -->
+        <h2>✅ 5. Roles y responsabilidades de un Arquitecto de Software</h2>
+        <p>El arquitecto de software es responsable de:</p>
+        <ul class="roles-list">
+            <li><strong>Diseñar</strong> la estructura general del sistema</li>
+            <li><strong>Seleccionar</strong> tecnologías y estilos arquitectónicos adecuados</li>
+            <li><strong>Garantizar</strong> calidad técnica y estabilidad del sistema</li>
+            <li><strong>Guiar</strong> al equipo de desarrollo y resolver problemas complejos</li>
+            <li><strong>Tomar</strong> decisiones estratégicas de alto impacto técnico</li>
+            <li><strong>Documentar</strong> la arquitectura y sus decisiones</li>
+            <li><strong>Evaluar</strong> y mitigar riesgos técnicos</li>
         </ul>
         
-        <h2>🎮 Ejemplos del Mundo Real</h2>
+        <!-- ✅ Ejemplos básicos -->
+        <h2>✅ 6. Ejemplos básicos de arquitecturas en proyectos reales</h2>
         
-        <div class="example">
-            <h3>🏢 Aplicación Web de Empresa</h3>
-            <p><strong>Estructura en 3 capas:</strong></p>
-            <ul style="margin-left: 20px;">
-                <li><strong>Presentación:</strong> Lo que el usuario ve (botones, formularios)</li>
-                <li><strong>Lógica:</strong> Las reglas del negocio (cálculos, validaciones)</li>
-                <li><strong>Datos:</strong> Donde se guarda la información (base de datos)</li>
-            </ul>
-        </div>
-        
-        <div class="example">
-            <h3>📺 Plataforma de Streaming (Netflix)</h3>
-            <p><strong>Microservicios:</strong></p>
-            <ul style="margin-left: 20px;">
-                <li>Un servicio solo para buscar películas</li>
-                <li>Otro solo para recomendar contenido</li>
-                <li>Uno más solo para reproducir video</li>
-                <li>Cada parte funciona independiente</li>
-            </ul>
-        </div>
-        
-        <div class="example">
-            <h3>📱 App Móvil con Backend</h3>
-            <p><strong>Cliente-Servidor:</strong></p>
-            <ul style="margin-left: 20px;">
-                <li><strong>Cliente:</strong> La app en tu celular</li>
-                <li><strong>Servidor:</strong> El cerebro en la nube</li>
-                <li>La app pide datos al servidor</li>
-                <li>El servidor los procesa y responde</li>
-            </ul>
-        </div>
-        
-        <div class="conclusion">
-            <h2>✨ Conclusión</h2>
-            <p><strong>La arquitectura de software es el corazón de cualquier programa.</strong> Sin una buena arquitectura, el software se vuelve un lío imposible de mantener. Con una buena arquitectura, puedes crecer, mejorar y adaptarte sin problemas.</p>
-            <p style="margin-top: 15px; font-style: italic;">"Construir software sin arquitectura es como construir una casa sin plano: puede que funcione al principio, pero se caerá con el tiempo."</p>
+        <div class="examples-grid">
+            <div class="example-card">
+                <h3><i class="fas fa-building"></i> Aplicación Web Corporativa</h3>
+                <p><strong>Arquitectura en Capas:</strong></p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>Presentación (frontend)</li>
+                    <li>Lógica de negocio (backend)</li>
+                    <li>Acceso a datos (base de datos)</li>
+                </ul>
+                <p><em>Sistemas bancarios, hospitalarios, educativos.</em></p>
+            </div>
             
-            <div style="margin-top: 25px;">
-                <a href="post2.html" style="background: white; color: #0984e3; padding: 12px 25px; border-radius: 25px; text-decoration: none; font-weight: bold; display: inline-block;">
+            <div class="example-card">
+                <h3><i class="fas fa-video"></i> Plataforma de Streaming</h3>
+                <p><strong>Arquitectura de Microservicios:</strong></p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>Servicio de catálogo</li>
+                    <li>Servicio de reproducción</li>
+                    <li>Servicio de recomendaciones</li>
+                    <li>Servicio de usuarios</li>
+                </ul>
+                <p><em>Netflix, Spotify, YouTube.</em></p>
+            </div>
+            
+            <div class="example-card">
+                <h3><i class="fas fa-mobile-alt"></i> App Móvil con Backend</h3>
+                <p><strong>Arquitectura Cliente-Servidor:</strong></p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>Cliente: app móvil (iOS/Android)</li>
+                    <li>Servidor: backend en la nube</li>
+                    <li>Comunicación: APIs REST</li>
+                </ul>
+                <p><em>Uber, Instagram, WhatsApp.</em></p>
+            </div>
+        </div>
+        
+        <!-- ✅ Conclusión -->
+        <div class="conclusion-box">
+            <h2>✅ 7. Conclusión o reflexión final</h2>
+            <p style="margin-bottom: 15px;">La <strong>arquitectura de software es el corazón técnico</strong> de cualquier proyecto. Una buena arquitectura permite que el software:</p>
+            <ul style="margin-left: 20px; margin-bottom: 20px;">
+                <li>Evolucione de manera controlada</li>
+                <li>Sea estable y confiable</li>
+                <li>Responda a las necesidades presentes y futuras</li>
+                <li>Mantenga un costo de mantenimiento razonable</li>
+            </ul>
+            <p><em>Un sistema sin arquitectura clara está destinado a volverse frágil, difícil de mantener y costoso de modificar.</em></p>
+            
+            <div style="text-align: center; margin-top: 25px;">
+                <a href="post2.html" class="next-button">
                     Siguiente: Estilos Arquitectónicos <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
