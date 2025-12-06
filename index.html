@@ -3,202 +3,216 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Técnico – Arquitectura de Software</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Blog de Arquitectura de Software - Estudiante</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        .header h1 {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            color: #7f8c8d;
+            font-size: 1.2rem;
+            font-style: italic;
+        }
+        
+        .posts-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .post-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            text-decoration: none;
+            color: #333;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .post-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            border-color: #667eea;
+        }
+        
+        .post-number {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+        
+        .post-card h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .post-card p {
+            color: #7f8c8d;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+        
+        .post-icon {
+            font-size: 40px;
+            color: #667eea;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .read-more {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            text-align: center;
+            transition: all 0.3s;
+            margin-top: auto;
+        }
+        
+        .read-more:hover {
+            background: #5a6fd8;
+            transform: scale(1.05);
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+            color: #7f8c8d;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .posts-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Slab:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header con efecto gradiente -->
-    <header class="main-header">
-        <div class="header-content">
-            <div class="logo-container">
-                <i class="fas fa-code-branch logo-icon"></i>
-                <div>
-                    <h1 class="site-title">Architecture<span class="highlight">Blog</span></h1>
-                    <p class="site-subtitle">Tecnología • Diseño • Arquitectura de Software</p>
-                </div>
-            </div>
-            <div class="author-info">
-                <div class="avatar">
-                    <i class="fas fa-user-graduate"></i>
-                </div>
-                <div>
-                    <p class="author-name">Por: Estudiante de Ingeniería de Sistemas</p>
-                    <p class="author-title">Desarrollador & Arquitecto en Formación</p>
-                </div>
-            </div>
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-laptop-code"></i> Blog Técnico de Arquitectura de Software</h1>
+            <p>Por: Estudiante de Ingeniería de Sistemas</p>
         </div>
-        <div class="header-wave">
-            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
-            </svg>
-        </div>
-    </header>
-
-    <!-- Sección de introducción -->
-    <section class="intro-section">
-        <div class="container">
-            <div class="intro-card">
-                <div class="intro-icon">
-                    <i class="fas fa-cogs"></i>
+        
+        <div class="posts-container">
+            <!-- POST 1 -->
+            <a href="post1.html" class="post-card">
+                <div class="post-number">1</div>
+                <div class="post-icon">
+                    <i class="fas fa-laptop-code"></i>
                 </div>
-                <h2>Explora los Fundamentos del Diseño de Software</h2>
-                <p>Un viaje por los conceptos, estilos y patrones que definen la arquitectura de software moderna. Desde lo básico hasta las tendencias más avanzadas.</p>
-                <div class="stats">
-                    <div class="stat-item">
-                        <span class="stat-number">3</span>
-                        <span class="stat-label">Artículos</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">15+</span>
-                        <span class="stat-label">Patrones</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">5</span>
-                        <span class="stat-label">Estilos</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección de artículos -->
-    <section class="posts-section">
-        <div class="container">
-            <h2 class="section-title">Artículos Destacados</h2>
-            <p class="section-subtitle">Aprende sobre arquitectura de software con contenido estructurado y ejemplos prácticos</p>
+                <h2>¿Qué es la Arquitectura de Software?</h2>
+                <p><strong>Conceptos básicos, importancia y ejemplos reales.</strong></p>
+                <p>✅ Definición y objetivos<br>
+                   ✅ Componentes básicos<br>
+                   ✅ Importancia en desarrollo<br>
+                   ✅ Roles del arquitecto<br>
+                   ✅ Ejemplos reales</p>
+                <span class="read-more">Leer Artículo <i class="fas fa-arrow-right"></i></span>
+            </a>
             
-            <div class="posts-grid">
-                <!-- Artículo 1 -->
-                <a href="post1.html" class="post-card post-card-featured">
-                    <div class="post-badge">Fundamentos</div>
-                    <div class="post-icon">
-                        <i class="fas fa-layer-group"></i>
-                    </div>
-                    <div class="post-content">
-                        <h3>¿Qué es la Arquitectura de Software?</h3>
-                        <p>Conceptos básicos, importancia, componentes y ejemplos reales de aplicaciones empresariales.</p>
-                        <div class="post-meta">
-                            <span class="meta-item">
-                                <i class="fas fa-clock"></i> Lectura: 8 min
-                            </span>
-                            <span class="meta-item">
-                                <i class="fas fa-chart-bar"></i> Nivel: Básico
-                            </span>
-                        </div>
-                    </div>
-                    <div class="post-arrow">
-                        <i class="fas fa-arrow-right"></i>
-                    </div>
-                </a>
-
-                <!-- Artículo 2 -->
-                <a href="post2.html" class="post-card">
-                    <div class="post-badge">Estilos</div>
-                    <div class="post-icon">
-                        <i class="fas fa-project-diagram"></i>
-                    </div>
-                    <div class="post-content">
-                        <h3>Estilos Arquitectónicos más Utilizados</h3>
-                        <p>Monolítico, N-Capas, MVC, Microservicios: comparativa detallada con ventajas y desventajas.</p>
-                        <div class="post-meta">
-                            <span class="meta-item">
-                                <i class="fas fa-clock"></i> Lectura: 12 min
-                            </span>
-                            <span class="meta-item">
-                                <i class="fas fa-chart-bar"></i> Nivel: Intermedio
-                            </span>
-                        </div>
-                    </div>
-                    <div class="post-arrow">
-                        <i class="fas fa-arrow-right"></i>
-                    </div>
-                </a>
-
-                <!-- Artículo 3 -->
-                <a href="post3.html" class="post-card">
-                    <div class="post-badge">Patrones</div>
-                    <div class="post-icon">
-                        <i class="fas fa-shapes"></i>
-                    </div>
-                    <div class="post-content">
-                        <h3>Patrones Arquitectónicos Modernos</h3>
-                        <p>Clean Architecture, Hexagonal y CQRS: soluciones para sistemas escalables y mantenibles.</p>
-                        <div class="post-meta">
-                            <span class="meta-item">
-                                <i class="fas fa-clock"></i> Lectura: 10 min
-                            </span>
-                            <span class="meta-item">
-                                <i class="fas fa-chart-bar"></i> Nivel: Avanzado
-                            </span>
-                        </div>
-                    </div>
-                    <div class="post-arrow">
-                        <i class="fas fa-arrow-right"></i>
-                    </div>
-                </a>
-            </div>
+            <!-- POST 2 -->
+            <a href="post2.html" class="post-card">
+                <div class="post-number">2</div>
+                <div class="post-icon">
+                    <i class="fas fa-layer-group"></i>
+                </div>
+                <h2>Estilos Arquitectónicos más Utilizados</h2>
+                <p><strong>Monolítico, N-Capas, MVC, Microservicios y más.</strong></p>
+                <p>✅ 5 estilos principales<br>
+                   ✅ Características de cada uno<br>
+                   ✅ Ventajas y desventajas<br>
+                   ✅ Tabla comparativa<br>
+                   ✅ Cuándo usar cada uno</p>
+                <span class="read-more">Leer Artículo <i class="fas fa-arrow-right"></i></span>
+            </a>
+            
+            <!-- POST 3 -->
+            <a href="post3.html" class="post-card">
+                <div class="post-number">3</div>
+                <div class="post-icon">
+                    <i class="fas fa-shapes"></i>
+                </div>
+                <h2>Patrones Arquitectónicos Modernos</h2>
+                <p><strong>Clean Architecture, Hexagonal y CQRS.</strong></p>
+                <p>✅ Clean Architecture<br>
+                   ✅ Arquitectura Hexagonal<br>
+                   ✅ Patrón CQRS<br>
+                   ✅ Ventajas y desventajas<br>
+                   ✅ Ejemplos de aplicación</p>
+                <span class="read-more">Leer Artículo <i class="fas fa-arrow-right"></i></span>
+            </a>
         </div>
-    </section>
-
-    <!-- Sección de timeline -->
-    <section class="timeline-section">
-        <div class="container">
-            <h2 class="section-title">Evolución de la Arquitectura</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-date">1990s</div>
-                    <div class="timeline-content">
-                        <h4>Arquitectura Monolítica</h4>
-                        <p>Sistemas unificados en una sola unidad de despliegue.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">2000s</div>
-                    <div class="timeline-content">
-                        <h4>Arquitectura en Capas</h4>
-                        <p>Separación de responsabilidades por niveles lógicos.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">2010s</div>
-                    <div class="timeline-content">
-                        <h4>Microservicios</h4>
-                        <p>Sistemas distribuidos como servicios independientes.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">Presente</div>
-                    <div class="timeline-content">
-                        <h4>Patrones Modernos</h4>
-                        <p>Clean Architecture, Hexagonal, CQRS y más.</p>
-                    </div>
-                </div>
-            </div>
+        
+        <div class="footer">
+            <p>© 2024 Blog de Arquitectura de Software - Todos los derechos reservados</p>
+            <p style="margin-top: 10px; font-size: 0.9rem;">
+                <i class="fas fa-graduation-cap"></i> Material educativo para estudiantes de ingeniería de sistemas
+            </p>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="main-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <i class="fas fa-code-branch"></i>
-                    <span>ArchitectureBlog</span>
-                </div>
-                <div class="footer-links">
-                    <a href="post1.html">Fundamentos</a>
-                    <a href="post2.html">Estilos</a>
-                    <a href="post3.html">Patrones</a>
-                </div>
-                <div class="footer-copyright">
-                    <p>© 2024 Blog Técnico de Arquitectura de Software. Todos los derechos reservados.</p>
-                    <p class="footer-note">Desarrollado con <i class="fas fa-heart"></i> para la comunidad de ingeniería de software</p>
-                </div>
-            </div>
-        </div>
-    </footer>
+    </div>
 </body>
 </html>
-
